@@ -1,0 +1,12 @@
+*.iml
+target/
+out/
+.idea/
+node_modules/
+*.gitkeep
+.DS_Store
+/javacore/production
+/out
+*.class
+*.icloud
+*.psd

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:books/book*.properties" />
+
+    <bean id="bookItem1"
+          class="com.homework.bookstore.models.Book">
+        <property name="name" value="${book1.name}"/>
+        <property name="author" value="${book1.author}"/>
+        <property name="price" value="${book1.price}"/>
+        <property name="type" value="${book1.type}"/>
+    </bean>
+
+    <bean id="bookItem2"
+          class="com.homework.bookstore.models.Book">
+        <property name="name" value="${book2.name}"/>
+        <property name="author" value="${book2.author}"/>
+        <property name="price" value="${book2.price}"/>
+        <property name="type" value="${book2.type}"/>
+    </bean>
+
+    <bean id="bookItem3"
+          class="com.homework.bookstore.models.Book">
+        <property name="name" value="${book3.name}"/>
+        <property name="author" value="${book3.author}"/>
+        <property name="price" value="${book3.price}"/>
+        <property name="type" value="${book3.type}"/>
+    </bean>
+
+    <bean id="bookItem4"
+          class="com.homework.bookstore.models.Book">
+        <property name="name" value="${book4.name}"/>
+        <property name="author" value="${book4.author}"/>
+        <property name="price" value="${book4.price}"/>
+        <property name="type" value="${book4.type}"/>
+    </bean>
+
+    <bean id="bookItem5"
+          class="com.homework.bookstore.models.Book">
+        <property name="name" value="${book5.name}"/>
+        <property name="author" value="${book5.author}"/>
+        <property name="price" value="${book5.price}"/>
+        <property name="type" value="${book5.type}"/>
+    </bean>
+
+    <bean id="bookItem6"
+          class="com.homework.bookstore.models.Book">
+        <property name="name" value="${book6.name}"/>
+        <property name="author" value="${book6.author}"/>
+        <property name="price" value="${book6.price}"/>
+        <property name="type" value="${book6.type}"/>
+    </bean>
+
+    <bean id="bookItem7"
+          class="com.homework.bookstore.models.Book">
+        <property name="name" value="${book7.name}"/>
+        <property name="author" value="${book7.author}"/>
+        <property name="price" value="${book7.price}"/>
+        <property name="type" value="${book7.type}"/>
+    </bean>
+
+    <bean id="bookStoreDaoImpl"
+          class="com.homework.bookstore.dao.BookStoreDaoImpl">
+        <property name="books">
+            <list>
+                <ref bean="bookItem1"/>
+                <ref bean="bookItem2"/>
+                <ref bean="bookItem3"/>
+                <ref bean="bookItem4"/>
+                <ref bean="bookItem5"/>
+                <ref bean="bookItem6"/>
+                <ref bean="bookItem7"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="bookStoreService"
+          class="com.homework.bookstore.services.BookStoreService">
+        <constructor-arg name="bookStoreDao" ref="bookStoreDaoImpl" />
+    </bean>
+
+    <bean id="bookStoreController"
+          class="com.homework.bookstore.controllers.BookStoreController">
+        <constructor-arg name="bookStoreService" ref="bookStoreService"/>
+    </bean>
+
+
+</beans>
